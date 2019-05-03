@@ -1,0 +1,19 @@
+#Importing Libraries
+from PIL import Image
+from pytesseract import image_to_string
+import pytesseract
+
+#reading image and creating image matrix
+image_matrix = Image.open("image_file.jpg")
+
+ #converting image string
+result_text = pytesseract.image_to_string(image_matrix, config='')
+
+#Opening a file in 'write' mode
+file = open('text_from_image', 'w')
+
+#Writing to the file
+file.write(result_text)
+
+#closing the file
+file.close()
